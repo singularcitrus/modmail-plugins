@@ -21,7 +21,7 @@ class Transfer(commands.Cog):
             category_id = int(message)
             category = discord.utils.get(ctx.message.guild.categories, id=category_id)
             new_message = await ctx.send("Transferring you to the `" + category.name + "` Department")
-            await ctx.message.channel.edit(cateogry=category)
+            await ctx.thread.channel.edit(cateogry=category)
             await ctx.thread.reply(new_message, anonymous=True)
 
 
