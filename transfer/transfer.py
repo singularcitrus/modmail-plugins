@@ -21,9 +21,10 @@ class Transfer(commands.Cog):
             message_split = message.split(" ")
             category_id = int(message_split[0])
             category = discord.utils.get(ctx.message.guild.categories, id=category_id)
-            new_message = await ctx.send("Transferring you to the `" + category.name + "` Department")
             await ctx.thread.channel.edit(category=category)
-            await ctx.thread.reply(new_message, anonymous=True)
+            if "silent" not in message_split:
+                new_message = await ctx.send("Transferring you to the `" + category.name + "` Department")
+                await ctx.thread.reply(new_message, anonymous=True)
 
 
 def setup(bot):
