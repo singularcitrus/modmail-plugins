@@ -19,7 +19,8 @@ class Transfer(commands.Cog):
         """
         if message.isnumeric():
             message_split = message.split(" ")
-            category_id = int(message_split[0].replace(" ", ""))
+            print(message_split)
+            category_id = int(message_split[0])
             category = discord.utils.get(ctx.message.guild.categories, id=category_id)
             await ctx.thread.channel.edit(category=category)
             if "silent" not in message_split:
