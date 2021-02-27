@@ -16,10 +16,8 @@ class Transfer(commands.Cog):
         """
         Transfer a thread to a different category
         """
-        content = message.replace(self.bot.prefix, "")
-        names = content.split(" ")
-        category = utils.get(ctx.guild.categories, id=names[0])
-        await ctx.send(category.name)
+        category = utils.get(ctx.guild.categories, id=message)
+        await ctx.send(category)
 
 
 def setup(bot):
