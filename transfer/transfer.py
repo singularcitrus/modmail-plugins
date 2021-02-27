@@ -1,5 +1,5 @@
 from discord.ext import commands
-from discord import utils
+import discord
 
 from core import checks
 from core.models import PermissionLevel
@@ -16,7 +16,7 @@ class Transfer(commands.Cog):
         """
         Transfer a thread to a different category
         """
-        await ctx.send(message)
+        await ctx.send(discord.utils.get(ctx.message.guild.categories, id=message))
 
 
 def setup(bot):
