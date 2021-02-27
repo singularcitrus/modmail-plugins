@@ -17,9 +17,8 @@ class Transfer(commands.Cog):
         """
         Transfer a thread to a different category
         """
-        if message.isnumeric():
-            message_split = message.split(" ")
-            print(message_split)
+        message_split = message.split(" ")
+        if message[0].isnumeric():
             category_id = int(message_split[0])
             category = discord.utils.get(ctx.message.guild.categories, id=category_id)
             await ctx.thread.channel.edit(category=category)
