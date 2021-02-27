@@ -20,7 +20,7 @@ class Transfer(commands.Cog):
         if message.isnumeric():
             category_id = int(message)
             category = discord.utils.get(ctx.message.guild.categories, id=category_id)
-            await ctx.thread.reply("?ar Transferring you to the `" + category.name + "` Department", anonymous=True)
+            await ctx.thread.reply({content: "?ar Transferring you to the `" + category.name + "` Department"}, anonymous=True)
 
 
 def setup(bot):
