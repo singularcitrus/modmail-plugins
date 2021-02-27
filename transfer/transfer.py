@@ -16,7 +16,7 @@ class Transfer(commands.Cog):
         """
         Transfer a thread to a different category
         """
-        category = utils.get(ctx.message.guild.category_channels, id=message)
+        category = utils.get(ctx.message.guild.categories, id=message)
         await ctx.send(category)
 
 
