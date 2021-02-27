@@ -12,6 +12,7 @@ class Transfer(commands.Cog):
     @commands.command()
     @commands.guild_only()
     @checks.has_permissions(PermissionLevel.REGULAR)
+    @checks.thread_only()
     async def transfer(self, ctx, *, message):
         """
         Transfer a thread to a different category
@@ -19,7 +20,7 @@ class Transfer(commands.Cog):
         if message.isnumeric():
             category_id = int(message)
             category = discord.utils.get(ctx.message.guild.categories, id=category_id)
-            await ctx.send("?ar Transferring you to the `" + category.name + "` Department")
+            await ctx.thread.reply("?ar Transferring you to the `" + category.name + "` Department", anonymous=True)
 
 
 def setup(bot):
