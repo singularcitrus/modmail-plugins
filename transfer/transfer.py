@@ -11,7 +11,7 @@ class Transfer(commands.Cog):
 
     @commands.command()
     @commands.guild_only()
-    @checks.has_permission(PermissionLevel.REGULAR)
+    @checks.has_permissions(PermissionLevel.REGULAR)
     async def transfer(self, ctx, *, message):
         """
         Transfer a thread to a different category
