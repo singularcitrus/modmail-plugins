@@ -18,7 +18,7 @@ class Transfer(commands.Cog):
         """
         content = message.replace(self.bot.prefix, "")
         names = content.split(" ")
-        category = utils.get(ctx.guild.categories, id=names[1])
+        category = utils.get(ctx.guild.categories, id=names[0])
         await ctx.send(category.name)
 
 
